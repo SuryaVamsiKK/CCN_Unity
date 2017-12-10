@@ -592,7 +592,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: b1caaa41-63c4-4147-9db0-1c21fcd17d39
-  projectName: CCN_L4_Unity
+  projectName: CCN_L5_Unity
   organizationId: surya-2887581
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
