@@ -17,4 +17,12 @@ public class BulletTravel : MonoBehaviour {
 		this.transform.position += this.transform.up * Time.deltaTime * Speed;
 		
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "Destroyer")
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }
