@@ -28,6 +28,12 @@ public class BulletTravel : MonoBehaviour {
 		{
 			Destroy(this.gameObject);
 		}
+
+		if (collision.gameObject.tag == "Ship")
+		{
+			collision.GetComponent<Player>().Health_Reduction(4f);
+			Destroy(this.gameObject);
+		}
 	}
 
 	private void OnValidate()

@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
-public class Player_Movement : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	public Ship_Data Ship;
 	private float Hori_Move;
 	private float Verti_Move;
 	public bool Joysitck = false;
 	public Transform Gun;
+	private float health = 40f;
+	public Slider Healthbar;
 
 	// Use this for initialization
 	void Start () {
+
+		Healthbar.value = health;
 
 	}
 	
@@ -20,6 +25,7 @@ public class Player_Movement : MonoBehaviour {
 	void Update () {
 
 		//Fire();
+		Healthbar.value = health;
 
 		if (Joysitck == false)
 		{
@@ -105,5 +111,10 @@ public class Player_Movement : MonoBehaviour {
 		{
 			this.transform.GetChild(5).transform.localScale -= new Vector3(0.1f, 0.1f, 0);
 		}
+	}
+
+	public void Health_Reduction(float Damage)
+	{
+		health -= Damage;
 	}
 }

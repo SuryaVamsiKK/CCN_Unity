@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Player_Movement))]
+[CustomEditor(typeof(Player))]
 public class Player_Update : Editor {
 
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();
 
-		Player_Movement player = (Player_Movement)target;
+		Player player = (Player)target;
 
 		if (GUILayout.Button("Apply"))
-		{
+		{ 
 			player.Asthetics();
 		}
 	}
