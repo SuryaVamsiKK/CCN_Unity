@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	private float Hori_Move;
 	private float Verti_Move;
 	private float health = 40f;
+	private bool joystickfirecontrol = false;
 
 	// Use this for initialization
 	void Start () {
@@ -41,10 +42,10 @@ public class Player : MonoBehaviour {
 			KeyBoard_Movement();
 			if (autoFire == false)
 			{
-				if (Input.GetAxis("Ship_Fire") == 1)
+				if (Input.GetKeyDown(KeyCode.Space))
 				{
 					BulletSpwan();
-					waitfire = 1;
+					waitfire = 0;
 				}
 			}
 		}
@@ -54,9 +55,15 @@ public class Player : MonoBehaviour {
 			JoyStick_Movement();
 			if (autoFire == false)
 			{
-				if (Input.GetAxis("Ship_Fire_Joystick") == -1)
+				if (Input.GetAxis("Ship_Fire_Joystick") == 1 && joystickfirecontrol == false)
 				{
+					joystickfirecontrol = true;
 					BulletSpwan();
+					waitfire = 0;
+				}
+				if (Input.GetAxis("Ship_Fire_Joystick") == 0)
+				{
+					joystickfirecontrol = false;
 				}
 			}
 		}
@@ -89,8 +96,9 @@ public class Player : MonoBehaviour {
 		if (autoFire == true)
 		{
 			BulletSpwan();
-			waitfire = 1f;
 		}
+
+		Debug.Log(waitfire);
 
 		waitfire -= Time.deltaTime * Ship.FireRate;
 
