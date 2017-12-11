@@ -18,5 +18,5 @@ MonoBehaviour:
   ShipSideWings: {r: 0.44117647, g: 0.44117647, b: 0.44117647, a: 1}
   ShipThrusters: {r: 0.6985294, g: 0.6985294, b: 0.6985294, a: 1}
   Speed: 5
-  FireRate: 2
+  FireRate: 3
   Bullet: {fileID: 1372349447394750, guid: 504714e9ee7ee3b4c85b311d37c1c992, type: 2}

@@ -6,13 +6,22 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+	[Header("The Ship")]
 	public Ship_Data Ship;
+
+	[Header("Requirements")]
+	public Transform Gun;
+	public Slider Healthbar;
+
+	[Header("Controls")]
+	public bool Joysitck = false;
+	public bool autoFire = false;
+
+
+	private float waitfire;
 	private float Hori_Move;
 	private float Verti_Move;
-	public bool Joysitck = false;
-	public Transform Gun;
 	private float health = 40f;
-	public Slider Healthbar;
 
 	// Use this for initialization
 	void Start () {
@@ -30,11 +39,26 @@ public class Player : MonoBehaviour {
 		if (Joysitck == false)
 		{
 			KeyBoard_Movement();
+			if (autoFire == false)
+			{
+				if (Input.GetAxis("Ship_Fire") == 1)
+				{
+					BulletSpwan();
+					waitfire = 1;
+				}
+			}
 		}
 
 		if (Joysitck == true)
 		{
 			JoyStick_Movement();
+			if (autoFire == false)
+			{
+				if (Input.GetAxis("Ship_Fire_Joystick") == -1)
+				{
+					BulletSpwan();
+				}
+			}
 		}
 
 		Debug.DrawRay(this.transform.position, this.transform.up * 5f, Color.red);
@@ -43,14 +67,36 @@ public class Player : MonoBehaviour {
 		{
 			this.transform.position += transform.up * Time.deltaTime * Ship.Speed;
 		}
-		else
+
+		if (Joysitck == false)
 		{
-			this.transform.position += transform.up * Time.deltaTime * Ship.Speed / 2;
+			if (Verti_Move < 0)
+			{
+				this.transform.position += transform.up * Time.deltaTime * Ship.Speed / 2;
+			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Joysitck == true)
+		{
+			if (Input.GetAxis("SlowDown") == 0)
+			{
+				this.transform.position += transform.up * Time.deltaTime * Ship.Speed / 2;
+			}
+		}
+
+		
+
+		if (autoFire == true)
 		{
 			BulletSpwan();
+			waitfire = 1f;
+		}
+
+		waitfire -= Time.deltaTime * Ship.FireRate;
+
+		if (waitfire <= 0f)
+		{
+			waitfire = 0f;
 		}
 	}
 
@@ -98,7 +144,11 @@ public class Player : MonoBehaviour {
 
 	void BulletSpwan()
 	{
-		GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation, GameObject.FindGameObjectWithTag("Bullet_Holder").transform);
+		if (waitfire <= 0)
+		{
+			GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation, GameObject.FindGameObjectWithTag("Bullet_Holder").transform);
+			waitfire = 1f;
+		}
 	}
 
 	void Fire()
