@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class Player : MonoBehaviour {
+public class Player : NetworkBehaviour {
 
 	[Header("The Ship")]
 	public Ship_Data Ship;
@@ -33,39 +34,13 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (!isLocalPlayer)
+		{
+			return;
+		}
+
 		//Fire();
 		Healthbar.value = health;
-
-		if (Joysitck == false)
-		{
-			KeyBoard_Movement();
-			if (autoFire == false)
-			{
-				if (Input.GetKeyDown(KeyCode.Space))
-				{
-					BulletSpwan();
-					waitfire = 0;
-				}
-			}
-		}
-
-		if (Joysitck == true)
-		{
-			JoyStick_Movement();
-			if (autoFire == false)
-			{
-				if (Input.GetAxis("Ship_Fire_Joystick") == 1 && joystickfirecontrol == false)
-				{
-					joystickfirecontrol = true;
-					BulletSpwan();
-					waitfire = 0;
-				}
-				if (Input.GetAxis("Ship_Fire_Joystick") == 0)
-				{
-					joystickfirecontrol = false;
-				}
-			}
-		}
 
 		Debug.DrawRay(this.transform.position, this.transform.up * 5f, Color.red);
 		transform.Rotate(new Vector3(0,0,Hori_Move * Ship.Speed));
@@ -90,14 +65,48 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		
+
+
+		if (Joysitck == false)
+		{
+			KeyBoard_Movement();
+			if (autoFire == false)
+			{
+				if (Input.GetKeyDown(KeyCode.Space))
+				{
+					CmdBulletSpwan();
+					waitfire = 0;
+				}
+			}
+		}
+
+		if (Joysitck == true)
+		{
+			JoyStick_Movement();
+			if (autoFire == false)
+			{
+				if (Input.GetAxis("Ship_Fire_Joystick") == 1 && joystickfirecontrol == false)
+				{
+					joystickfirecontrol = true;
+					CmdBulletSpwan();
+					waitfire = 0;
+				}
+				if (Input.GetAxis("Ship_Fire_Joystick") == 0)
+				{
+					joystickfirecontrol = false;
+				}
+			}
+		}
+
 
 		if (autoFire == true)
 		{
-			BulletSpwan();
+			if (waitfire <= 0)
+			{
+				CmdBulletSpwan();
+				waitfire = 1f;
+			}
 		}
-
-		Debug.Log(waitfire);
 
 		waitfire -= Time.deltaTime * Ship.FireRate;
 
@@ -149,13 +158,11 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void BulletSpwan()
+	[Command]
+	void CmdBulletSpwan()
 	{
-		if (waitfire <= 0)
-		{
-			GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation, GameObject.FindGameObjectWithTag("Bullet_Holder").transform);
-			waitfire = 1f;
-		}
+			GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation);
+			NetworkServer.Spawn(bullet);
 	}
 
 	void Fire()
