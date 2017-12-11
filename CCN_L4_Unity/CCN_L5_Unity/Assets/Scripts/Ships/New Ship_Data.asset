@@ -16,4 +16,4 @@ MonoBehaviour:
   ShipColor: {r: 1, g: 1, b: 1, a: 1}
   Speed: 5
   FireRate: 0
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 1372349447394750, guid: 504714e9ee7ee3b4c85b311d37c1c992, type: 2}

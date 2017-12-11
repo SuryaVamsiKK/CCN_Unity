@@ -39,6 +39,11 @@ public class Player_Movement : MonoBehaviour {
 		{
 			this.transform.position += transform.up * Time.deltaTime * Ship.Speed / 2;
 		}
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			BulletSpwan();
+		}
 	}
 
 	void KeyBoard_Movement()
@@ -85,7 +90,7 @@ public class Player_Movement : MonoBehaviour {
 
 	void BulletSpwan()
 	{
-		GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, Quaternion.identity, Gun);
+		GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation, GameObject.FindGameObjectWithTag("Bullet_Holder").transform);
 	}
 
 }
