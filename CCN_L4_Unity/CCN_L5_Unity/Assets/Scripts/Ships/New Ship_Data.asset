@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoUpdate: 1
   ShipName: First_Ship
-  ShipColor: {r: 0.45588237, g: 0.45588237, b: 0.45588237, a: 1}
+  ShipColor: {r: 1, g: 1, b: 1, a: 1}
   Speed: 5
   FireRate: 0
+  Bullet: {fileID: 0}

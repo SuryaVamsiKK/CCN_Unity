@@ -11,6 +11,8 @@ public class Ship_Data : Update_Data
 	public float Speed;
 	public float FireRate;
 
+	public GameObject Bullet;
+
 	protected override void OnValidate()
 	{
 		base.OnValidate();

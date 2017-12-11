@@ -9,6 +9,7 @@ public class Player_Movement : MonoBehaviour {
 	private float Hori_Move;
 	private float Verti_Move;
 	public bool Joysitck = false;
+	public Transform Gun;
 
 	// Use this for initialization
 	void Start () {
@@ -27,16 +28,24 @@ public class Player_Movement : MonoBehaviour {
 		{
 			JoyStick_Movement();
 		}
+
 		Debug.DrawRay(this.transform.position, this.transform.up * 5f, Color.red);
 		transform.Rotate(new Vector3(0,0,Hori_Move * Ship.Speed));
-		this.transform.position += transform.up * Time.deltaTime * Ship.Speed;
+		if (Verti_Move >= 0)
+		{
+			this.transform.position += transform.up * Time.deltaTime * Ship.Speed;
+		}
+		else
+		{
+			this.transform.position += transform.up * Time.deltaTime * Ship.Speed / 2;
+		}
 	}
 
 	void KeyBoard_Movement()
 	{
 		Hori_Move = Input.GetAxis("Ship_Horizontal");
 		Verti_Move = Input.GetAxis("Ship_Vertical");
-	}
+	} 
 
 	void JoyStick_Movement()
 	{
@@ -44,12 +53,12 @@ public class Player_Movement : MonoBehaviour {
 		Verti_Move = Input.GetAxis("Ship_Vertical_Joystick");
 	}
 
-	void OnValidate()
+	public void OnValidate()
 	{
 		if (Ship != null)
 		{
 			Ship.OnValuesUpdated -= Asthetics;
-			Ship.OnValuesUpdated += Asthetics;
+			Ship.OnValuesUpdated += Asthetics; 
 		}
 		Asthetics();
 	}
@@ -72,6 +81,11 @@ public class Player_Movement : MonoBehaviour {
 		{
 			Asthetics();
 		}
+	}
+
+	void BulletSpwan()
+	{
+		GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, Quaternion.identity, Gun);
 	}
 
 }
