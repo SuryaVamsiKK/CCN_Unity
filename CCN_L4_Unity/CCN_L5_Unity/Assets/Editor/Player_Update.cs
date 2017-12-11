@@ -10,9 +10,9 @@ public class Player_Update : Editor {
 
 		Player_Movement player = (Player_Movement)target;
 
-		/*if (GUILayout.Button("Apply"))
+		if (GUILayout.Button("Apply"))
 		{
-			player.apply();
-		}*/
+			player.Asthetics();
+		}
 	}
 }
