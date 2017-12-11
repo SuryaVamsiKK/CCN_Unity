@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class BulletTravel : MonoBehaviour {
 
+	[Range(0, 50)]
 	public float Speed;
+	public Color BulletColor;
 
 	// Use this for initialization
 	void Start () {
@@ -24,5 +28,10 @@ public class BulletTravel : MonoBehaviour {
 		{
 			Destroy(this.gameObject);
 		}
+	}
+
+	private void OnValidate()
+	{
+		this.GetComponent<SpriteRenderer>().color = BulletColor;
 	}
 }

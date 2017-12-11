@@ -19,6 +19,8 @@ public class Player_Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//Fire();
+
 		if (Joysitck == false)
 		{
 			KeyBoard_Movement();
@@ -72,10 +74,10 @@ public class Player_Movement : MonoBehaviour {
 	{
 		SpriteRenderer[] ShipBody = GetComponentsInChildren<SpriteRenderer>();
 
-		for (int i = 0; i < ShipBody.Length; i++)
-		{
-			ShipBody[i].color = Ship.ShipColor;
-		}
+		ShipBody[0].color = Ship.ShipNose;
+		ShipBody[1].color = Ship.ShipBody;
+		ShipBody[2].color = Ship.ShipSideWings;
+		ShipBody[3].color = Ship.ShipThrusters;
 
 		this.gameObject.name = Ship.ShipName;
 	}
@@ -93,4 +95,15 @@ public class Player_Movement : MonoBehaviour {
 		GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation, GameObject.FindGameObjectWithTag("Bullet_Holder").transform);
 	}
 
+	void Fire()
+	{
+		if (this.transform.GetChild(5).transform.localScale.x < 0.5f)
+		{
+			this.transform.GetChild(5).transform.localScale += new Vector3(0.1f, 0.1f, 0);
+		}
+		if (this.transform.GetChild(5).transform.localScale.x > 0.5f)
+		{
+			this.transform.GetChild(5).transform.localScale -= new Vector3(0.1f, 0.1f, 0);
+		}
+	}
 }
