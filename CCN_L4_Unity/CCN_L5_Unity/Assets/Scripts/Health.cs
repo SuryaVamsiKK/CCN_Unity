@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class Health : MonoBehaviour {
+public class Health : NetworkBehaviour {
 
 
 	public Slider Healthbar;
-	private float health = 40f;
+	[SyncVar (hook = "OnChangedHealth")] public float health = 40f;
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +18,27 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-		Healthbar.value = health;
-
 	}
 
 	public void Health_Reduction(float Damage)
 	{
+
+		if (!isServer)
+		{
+			return;
+		}
+
 		health -= Damage;
+		if (health <= 0)
+		{
+			health = 0;
+			Debug.Log("DEAD");
+		}
+
+	}
+
+	void OnChangedHealth(float healths)
+	{
+		Healthbar.value = healths;
 	}
 }

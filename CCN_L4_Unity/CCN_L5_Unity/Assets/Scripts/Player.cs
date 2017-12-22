@@ -157,6 +157,7 @@ public class Player : NetworkBehaviour {
 	void CmdBulletSpwan()
 	{
 			GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation);
+			Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
 			NetworkServer.Spawn(bullet);
 	}
 
