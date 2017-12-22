@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoUpdate: 1
   ShipName: Basic_Ship
-  ShipNose: {r: 0.83823526, g: 0.83823526, b: 0.83823526, a: 1}
+  ShipNose: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
   ShipBody: {r: 1, g: 1, b: 1, a: 1}
   ShipSideWings: {r: 0.44117647, g: 0.44117647, b: 0.44117647, a: 1}
   ShipThrusters: {r: 0.6985294, g: 0.6985294, b: 0.6985294, a: 1}
