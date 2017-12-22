@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 4340913098941954}
   - component: {fileID: 114585231259787054}
   - component: {fileID: 50936889695067608}
+  - component: {fileID: 114729394474945076}
   - component: {fileID: 58397067423543756}
   - component: {fileID: 114422216216462948}
   - component: {fileID: 114804364898212812}
@@ -1051,9 +1052,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 11400000, guid: 9e0c05f86c263aa4c8634f3ace17ba8f, type: 2}
   Gun: {fileID: 4033052463171920}
-  Healthbar: {fileID: 114083875514705912}
   Joysitck: 0
   autoFire: 0
+--- !u!114 &114729394474945076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464720537521660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a21e05e51f039d44a69e29050d40803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Healthbar: {fileID: 114083875514705912}
 --- !u!114 &114804364898212812
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -11,7 +11,6 @@ public class Player : NetworkBehaviour {
 
 	[Header("Requirements")]
 	public Transform Gun;
-	public Slider Healthbar;
 
 	[Header("Controls")]
 	public bool Joysitck = false;
@@ -21,14 +20,11 @@ public class Player : NetworkBehaviour {
 	private float waitfire;
 	private float Hori_Move;
 	private float Verti_Move;
-	private float health = 40f;
 	private bool joystickfirecontrol = false;
 
 	// Use this for initialization
 	void Start () {
-
-		Healthbar.value = health;
-
+		
 	}
 	
 	// Update is called once per frame
@@ -40,7 +36,6 @@ public class Player : NetworkBehaviour {
 		}
 
 		//Fire();
-		Healthbar.value = health;
 
 		Debug.DrawRay(this.transform.position, this.transform.up * 5f, Color.red);
 		transform.Rotate(new Vector3(0,0,Hori_Move * Ship.Speed));
@@ -175,10 +170,5 @@ public class Player : NetworkBehaviour {
 		{
 			this.transform.GetChild(5).transform.localScale -= new Vector3(0.1f, 0.1f, 0);
 		}
-	}
-
-	public void Health_Reduction(float Damage)
-	{
-		health -= Damage;
 	}
 }
