@@ -6,12 +6,21 @@ using UnityEngine.SceneManagement;
 public class Choice : MonoBehaviour {
 
 	public int shipnum;
-	public Choice_Manager selection_manager;
-	public string SceneName;
+	 Choice_Manager selection_manager;
+	//public string SceneName;
+	 GameObject networksetup;
+
+	private void Awake()
+	{
+		selection_manager = GameObject.FindGameObjectWithTag("Choice").GetComponent<Choice_Manager>();
+		networksetup = GameObject.FindGameObjectWithTag("nets").gameObject;
+	}
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		networksetup.SetActive(false);
+
 	}
 	
 	// Update is called once per frame
@@ -22,6 +31,8 @@ public class Choice : MonoBehaviour {
 	private void OnMouseDown()
 	{
 		selection_manager.ShipChoice = shipnum;
-		SceneManager.LoadScene(SceneName);
+		networksetup.SetActive(true);
+		this.transform.parent.gameObject.SetActive(false);
+		//SceneManager.LoadScene(SceneName);
 	}
 }

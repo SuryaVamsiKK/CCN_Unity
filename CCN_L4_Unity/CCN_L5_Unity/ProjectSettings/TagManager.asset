@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Ship
   - Choice
+  - nets
   layers:
   - Default
   - TransparentFX
