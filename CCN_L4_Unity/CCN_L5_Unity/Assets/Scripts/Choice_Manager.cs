@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class Choice_Manager : NetworkBehaviour {
 
 	public int ShipChoice;
+	public string names;
 
 	// Use this for initialization
 	void Start () {

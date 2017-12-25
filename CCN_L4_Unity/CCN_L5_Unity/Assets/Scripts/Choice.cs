@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Choice : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Choice : MonoBehaviour {
 	 Choice_Manager selection_manager;
 	//public string SceneName;
 	 GameObject networksetup;
+	public Text nms;
 
 	private void Awake()
 	{
@@ -33,6 +35,7 @@ public class Choice : MonoBehaviour {
 		selection_manager.ShipChoice = shipnum;
 		networksetup.SetActive(true);
 		this.transform.parent.gameObject.SetActive(false);
+		selection_manager.names = nms.text;
 		//SceneManager.LoadScene(SceneName);
 	}
 }

@@ -10,6 +10,8 @@ TagManager:
   - Ship
   - Choice
   - nets
+  - Stats
+  - Statsper
   layers:
   - Default
   - TransparentFX
