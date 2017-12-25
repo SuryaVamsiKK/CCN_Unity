@@ -6,6 +6,9 @@ using UnityEngine.Networking;
 
 public class Player : NetworkBehaviour {
 
+	[SyncVar]
+	public NetworkInstanceId parentNetId;
+
 	[Header("The Ship")]
 	public Ship_Data Ship;
 
@@ -25,12 +28,20 @@ public class Player : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+		if (parentNetId != null)
+		{
+			//Debug.Log("Attached item net id:" + parentNetId);
+			GameObject parentObject = ClientScene.FindLocalObject(parentNetId);
+			transform.SetParent(parentObject.transform);
+			//Debug.Log(this.transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer);
+		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (!isLocalPlayer)
+		if (!this.transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
 		{
 			return;
 		}

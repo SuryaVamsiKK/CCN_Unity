@@ -8,6 +8,7 @@ TagManager:
   - Destroyer
   - Bullet
   - Ship
+  - Choice
   layers:
   - Default
   - TransparentFX
