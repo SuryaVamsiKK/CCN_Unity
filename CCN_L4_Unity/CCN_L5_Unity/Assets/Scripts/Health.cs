@@ -52,6 +52,14 @@ public class Health : NetworkBehaviour {
 
 	}
 
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "Destroyer")
+		{
+			Health_Reduction(100f);
+		}
+	}
+
 	void OnChangedHealth(float healths)
 	{
 		Healthbar.value = healths;

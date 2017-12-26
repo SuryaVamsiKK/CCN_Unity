@@ -46,7 +46,7 @@ public class manager : NetworkBehaviour {
 		status.text = GameObject.FindGameObjectsWithTag("Player").Length.ToString();
 		if (GameObject.FindGameObjectsWithTag("Player").Length <= 1)
 		{
-			status.text = this.gameObject.name + "is the winner";
+			status.text = this.gameObject.name + " is the winner";
 		}
 
 		if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
@@ -79,8 +79,8 @@ public class manager : NetworkBehaviour {
 	{
 		if (enabler == false)
 		{
-			placeheld = GameObject.FindGameObjectsWithTag("Player").Length;
-			status_per.text = "You Stood " + GameObject.FindGameObjectsWithTag("Player").Length + " out of all";
+			placeheld = GameObject.FindGameObjectsWithTag("Player").Length - 1;
+			status_per.text = "You stood " + placeheld + " out of all";
 			enabler = true;
 		}
 	}
