@@ -25,12 +25,9 @@ public class Health : NetworkBehaviour {
 			this.transform.parent.gameObject.SetActive(false);
 		}
 
-		if (!this.transform.parent.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer)
+		if (this.Healthbar.value <= 0)
 		{
-			if (this.Healthbar.value <= 0)
-			{
-				this.transform.parent.gameObject.SetActive(false);
-			}
+			this.transform.parent.gameObject.SetActive(false);
 		}
 
 	}
@@ -47,7 +44,7 @@ public class Health : NetworkBehaviour {
 		if (health <= 0)
 		{
 			health = 0;
-			//this.transform.parent.gameObject.SetActive(false);
+			this.transform.parent.gameObject.SetActive(false);
 		}
 
 	}
