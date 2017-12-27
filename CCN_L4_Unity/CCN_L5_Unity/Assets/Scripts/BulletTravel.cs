@@ -18,7 +18,7 @@ public class BulletTravel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		this.transform.position += this.transform.up * Time.deltaTime * Speed;
+		//this.transform.position += this.transform.up * Time.deltaTime * Speed;
 		
 	}
 
