@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class BulletTravel : MonoBehaviour {
+public class BulletTravel : NetworkBehaviour {
 
 	[Range(0, 50)]
 	public float Speed;
 	public Color BulletColor;
+	[SyncVar]
+	public string ResponablePerson;
 
 	// Use this for initialization
 	void Start () {

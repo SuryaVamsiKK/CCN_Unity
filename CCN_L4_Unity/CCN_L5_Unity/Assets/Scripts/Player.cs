@@ -131,7 +131,7 @@ public class Player : NetworkBehaviour {
 	void JoyStick_Movement()
 	{
 		Hori_Move = Input.GetAxis("Ship_Horizontal_Joystick");
-		Verti_Move = Input.GetAxis("Ship_Vertical_Joystick");
+		//Verti_Move = Input.GetAxis("Ship_Vertical_Joystick");
 	}
 
 	public void OnValidate()
@@ -169,8 +169,10 @@ public class Player : NetworkBehaviour {
 	{
 			GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation);
 			Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+			bullet.gameObject.name = this.transform.parent.gameObject.GetComponent<manager>().pname + ",s Bullet";
 			bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * bullet.GetComponent<BulletTravel>().Speed * 40f);
 			NetworkServer.Spawn(bullet);
+			//Network.Instantiate(bullet, Gun.position, this.transform.rotation,1);
 	}
 
 	void Fire()

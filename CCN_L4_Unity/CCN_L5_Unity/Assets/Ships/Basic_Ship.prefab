@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 114422216216462948}
   - component: {fileID: 114457731618534544}
   m_Layer: 0
-  m_Name: Something
+  m_Name: Basic_Ship
   m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 11400000, guid: c0823ceb0bf29fc439b8b5aa95755a77, type: 2}
   Gun: {fileID: 4033052463171920}
-  Joysitck: 0
+  Joysitck: 1
   autoFire: 0
 --- !u!114 &114729394474945076
 MonoBehaviour:
