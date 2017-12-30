@@ -11,7 +11,7 @@ public class BulletTravel : NetworkBehaviour {
 	public float Speed;
 	public Color BulletColor;
 	[SyncVar]
-	public string ResponablePerson;
+	public string resposinbleperson;
 
 	// Use this for initialization
 	void Start () {
@@ -30,17 +30,27 @@ public class BulletTravel : NetworkBehaviour {
 		if (collision.gameObject.tag == "Destroyer")
 		{
 			Destroy(this.gameObject);
-		}
+		}		
+	}
 
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
 		if (collision.gameObject.tag == "Ship")
 		{
-			collision.GetComponent<Health>().Health_Reduction(4f); 
-			Destroy(this.gameObject);
+			collision.gameObject.GetComponent<Health>().Health_Reduction(4f);
+			Cmdkill();
 		}
 	}
 
 	private void OnValidate()
 	{
 		this.GetComponent<SpriteRenderer>().color = BulletColor;
+	}
+
+	[Command]
+	void Cmdkill()
+	{
+		Destroy(this.gameObject);
+		NetworkServer.Destroy(this.gameObject);
 	}
 }

@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 11400000, guid: 53c8ce55980f01f41bafd6ecaf441da5, type: 2}
   Gun: {fileID: 4350745141973434}
-  Joysitck: 1
+  Joysitck: 0
   autoFire: 0
 --- !u!212 &212005086475793534
 SpriteRenderer:

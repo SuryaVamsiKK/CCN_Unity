@@ -53,6 +53,12 @@ public class manager : NetworkBehaviour {
 		{
 			status.text = "Number of players left " + GameObject.FindGameObjectsWithTag("Player").Length;
 		}
+
+		//if (this.transform.GetChild(0).GetComponent<Health>().Healthbar.value <= 0)
+		//{
+		//	currentPos();
+		//}
+
 	}
 
 	[Command]
