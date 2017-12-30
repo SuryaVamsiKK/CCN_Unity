@@ -21,7 +21,7 @@ public class Health : NetworkBehaviour {
 
 		if (health <= 0)
 		{
-			this.transform.parent.GetComponent<manager>().currentPos();
+			//this.transform.parent.GetComponent<manager>().currentPos();
 			this.transform.parent.gameObject.SetActive(false);
 		}
 

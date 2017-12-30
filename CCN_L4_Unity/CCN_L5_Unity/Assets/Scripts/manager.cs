@@ -11,12 +11,12 @@ public class manager : NetworkBehaviour {
 	[SyncVar]
 	public string pname;
 	public Text status;
-	public Text status_per;
-	bool enabler;
 	int placeheld;
+	[HideInInspector]
 
 	// Use this for initialization
 	void Start () {
+
 
 	}
 	
@@ -26,11 +26,6 @@ public class manager : NetworkBehaviour {
 		if (status == null)
 		{
 			status = GameObject.FindGameObjectWithTag("Stats").GetComponent<Text>();
-		}
-
-		if (status_per == null)
-		{
-			status_per = GameObject.FindGameObjectWithTag("Statsper").GetComponent<Text>();
 		}
 
 		if (isLocalPlayer)
@@ -47,6 +42,7 @@ public class manager : NetworkBehaviour {
 		if (GameObject.FindGameObjectsWithTag("Player").Length <= 1)
 		{
 			status.text = this.gameObject.name + " is the winner";
+			//enabler = true;
 		}
 
 		if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
@@ -73,15 +69,5 @@ public class manager : NetworkBehaviour {
 	void CmdName(string nms)
 	{
 		pname = nms;
-	}
-
-	public void currentPos()
-	{
-		if (enabler == false)
-		{
-			placeheld = GameObject.FindGameObjectsWithTag("Player").Length - 1;
-			status_per.text = "You stood " + placeheld + " out of all";
-			enabler = true;
-		}
 	}
 }

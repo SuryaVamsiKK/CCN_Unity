@@ -40,7 +40,7 @@ public class BulletTravel : NetworkBehaviour {
 		{
 			collision.gameObject.GetComponent<Health>().Health_Reduction(damagedelt);
 			Cmdkill();
-			if (collision.gameObject.GetComponent<Health>().health <= damagedelt)
+			if (collision.gameObject.GetComponent<Health>().health <= 0)
 			{
 				GameObject.FindGameObjectWithTag("sts").gameObject.GetComponent<Stats>().killer = resposinbleperson + "   destroyed   " + collision.transform.parent.GetComponent<manager>().pname;
 			}
