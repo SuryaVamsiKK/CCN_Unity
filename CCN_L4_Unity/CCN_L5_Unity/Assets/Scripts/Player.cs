@@ -167,12 +167,12 @@ public class Player : NetworkBehaviour {
 	[Command]
 	void CmdBulletSpwan()
 	{
-			GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation);
-			bullet.GetComponent<BulletTravel>().resposinbleperson = this.transform.parent.gameObject.GetComponent<manager>().pname + "_B";
-			bullet.gameObject.name = this.transform.parent.gameObject.GetComponent<manager>().pname + "'s bullet"; 
-			Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
-			bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * bullet.GetComponent<BulletTravel>().Speed * 40f);
-			NetworkServer.Spawn(bullet);
+		GameObject bullet = GameObject.Instantiate(Ship.Bullet, Gun.position, this.transform.rotation);
+		bullet.GetComponent<BulletTravel>().resposinbleperson = this.transform.parent.gameObject.GetComponent<manager>().pname + "_B";
+		bullet.gameObject.name = this.transform.parent.gameObject.GetComponent<manager>().pname + "'s bullet"; 
+		Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+		bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * bullet.GetComponent<BulletTravel>().Speed * 40f);
+		NetworkServer.Spawn(bullet);
 	}
 
 	void Fire()
