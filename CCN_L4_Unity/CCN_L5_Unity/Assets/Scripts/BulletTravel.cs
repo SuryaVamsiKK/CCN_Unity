@@ -10,6 +10,7 @@ public class BulletTravel : NetworkBehaviour {
 	[Range(0, 50)]
 	public float Speed;
 	public Color BulletColor;
+	public float damagedelt = 4f;
 	[SyncVar]
 	public string resposinbleperson;
 
@@ -37,8 +38,12 @@ public class BulletTravel : NetworkBehaviour {
 	{
 		if (collision.gameObject.tag == "Ship")
 		{
-			collision.gameObject.GetComponent<Health>().Health_Reduction(4f);
+			collision.gameObject.GetComponent<Health>().Health_Reduction(damagedelt);
 			Cmdkill();
+			if (collision.gameObject.GetComponent<Health>().health <= damagedelt)
+			{
+				GameObject.FindGameObjectWithTag("sts").gameObject.GetComponent<Stats>().killer = resposinbleperson + "   destroyed   " + collision.transform.parent.GetComponent<manager>().pname;
+			}
 		}
 	}
 

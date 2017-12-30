@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 50
   BulletColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedelt: 4
   resposinbleperson: 
 --- !u!212 &212329562494199806
 SpriteRenderer:

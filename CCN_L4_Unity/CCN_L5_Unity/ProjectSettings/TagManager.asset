@@ -12,6 +12,7 @@ TagManager:
   - nets
   - Stats
   - Statsper
+  - sts
   layers:
   - Default
   - TransparentFX
