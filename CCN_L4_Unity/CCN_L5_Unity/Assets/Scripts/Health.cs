@@ -13,21 +13,38 @@ public class Health : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+		GameObject.FindGameObjectWithTag("Statsper").GetComponent<Text>().text = "";
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (health <= 0)
+		if (this.transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
 		{
-			//this.transform.parent.GetComponent<manager>().currentPos();
-			this.transform.parent.gameObject.SetActive(false);
+			if (health <= 0 || this.Healthbar.value <= 0)
+			{
+				GameObject.FindGameObjectWithTag("Statsper").GetComponent<Text>().color = new Color(25f, 255f, 255f, 255f);
+				this.transform.parent.gameObject.SetActive(false);
+			}
+
+			if (GameObject.FindGameObjectsWithTag("Player").Length <= 1)
+			{
+				GameObject.FindGameObjectWithTag("Statsper").GetComponent<Text>().color = new Color(25f, 255f, 255f, 255f);
+			}
+			if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
+			{
+				GameObject.FindGameObjectWithTag("Statsper").GetComponent<Text>().color = new Color(25f, 255f, 255f, 0f);
+			}
 		}
 
-		if (this.Healthbar.value <= 0)
+		if (!this.transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
 		{
-			this.transform.parent.gameObject.SetActive(false);
+			if (health <= 0 || this.Healthbar.value <= 0)
+			{
+				this.transform.parent.gameObject.SetActive(false);
+			}
 		}
 
 	}
@@ -44,7 +61,6 @@ public class Health : NetworkBehaviour {
 		if (health <= 0)
 		{
 			health = 0;
-			this.transform.parent.gameObject.SetActive(false);
 		}
 
 	}

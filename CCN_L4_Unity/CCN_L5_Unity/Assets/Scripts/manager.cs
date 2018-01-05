@@ -12,6 +12,7 @@ public class manager : NetworkBehaviour {
 	public string pname;
 	public Text status;
 	int placeheld;
+	public bool dead = false;
 	[HideInInspector]
 
 	// Use this for initialization
@@ -19,9 +20,15 @@ public class manager : NetworkBehaviour {
 
 
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update() {
+
+		if (isLocalPlayer)
+		{
+			GameObject.FindGameObjectWithTag("Statsper").GetComponent<Text>().text = "You Stand at #" + GameObject.FindGameObjectsWithTag("Player").Length.ToString();			
+		}
+
 
 		if (status == null)
 		{
@@ -49,12 +56,6 @@ public class manager : NetworkBehaviour {
 		{
 			status.text = "Number of players left " + GameObject.FindGameObjectsWithTag("Player").Length;
 		}
-
-		//if (this.transform.GetChild(0).GetComponent<Health>().Healthbar.value <= 0)
-		//{
-		//	currentPos();
-		//}
-
 	}
 
 	[Command]

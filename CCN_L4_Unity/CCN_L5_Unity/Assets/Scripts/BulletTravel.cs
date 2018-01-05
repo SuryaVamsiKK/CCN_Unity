@@ -43,6 +43,7 @@ public class BulletTravel : NetworkBehaviour {
 			if (collision.gameObject.GetComponent<Health>().health <= 0)
 			{
 				GameObject.FindGameObjectWithTag("sts").gameObject.GetComponent<Stats>().killer = resposinbleperson + "   destroyed   " + collision.transform.parent.GetComponent<manager>().pname;
+				GameObject.FindGameObjectWithTag("sts").gameObject.GetComponent<Stats>().fades = true;
 			}
 		}
 	}
