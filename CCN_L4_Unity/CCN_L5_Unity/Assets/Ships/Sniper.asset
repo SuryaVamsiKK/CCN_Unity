@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b19a7e91595e34dbee22a15a24125e, type: 3}
+  m_Name: Sniper
+  m_EditorClassIdentifier: 
+  AutoUpdate: 1
+  ShipName: Sniper
+  ShipNose: {r: 0.5803922, g: 0.5803922, b: 0.5803922, a: 1}
+  ShipBody: {r: 1, g: 1, b: 1, a: 1}
+  ShipSideWings: {r: 0.4431373, g: 0.4431373, b: 0.4431373, a: 1}
+  ShipThrusters: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+  Speed: 5.5
+  FireRate: 3
+  Bullet: {fileID: 1682397936117768, guid: cad62dfac3af8e74a90caa1e8b59cbaf, type: 2}

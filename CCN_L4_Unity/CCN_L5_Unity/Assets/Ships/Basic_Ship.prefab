@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 114422216216462948}
   - component: {fileID: 114457731618534544}
   m_Layer: 0
-  m_Name: Something
+  m_Name: Basic_Ship
   m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a3a61187c427842b6f2735dc75af4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ship: {fileID: 11400000, guid: c0823ceb0bf29fc439b8b5aa95755a77, type: 2}
+  Ship: {fileID: 11400000, guid: 9e0c05f86c263aa4c8634f3ace17ba8f, type: 2}
   Gun: {fileID: 4033052463171920}
   Joysitck: 0
   autoFire: 0
@@ -1296,9 +1296,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 879a275faee580f49814866fdc6360a0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.44117647, g: 0.44117647, b: 0.44117647, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1648,7 +1648,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 879a275faee580f49814866fdc6360a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1914,7 +1914,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 879a275faee580f49814866fdc6360a0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2044,9 +2044,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 879a275faee580f49814866fdc6360a0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6985294, g: 0.6985294, b: 0.6985294, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

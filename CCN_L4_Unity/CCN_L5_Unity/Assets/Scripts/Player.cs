@@ -41,6 +41,8 @@ public class Player : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		Joysitck = GameObject.FindGameObjectWithTag("Choice").GetComponent<Choice_Manager>().joystickcarry;
+
 		if (!this.transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
 		{
 			return;

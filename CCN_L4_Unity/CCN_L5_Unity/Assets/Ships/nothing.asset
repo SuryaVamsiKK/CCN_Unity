@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: nothing
   m_EditorClassIdentifier: 
   AutoUpdate: 1
-  ShipName: ntg
-  ShipNose: {r: 1, g: 0, b: 0, a: 1}
-  ShipBody: {r: 1, g: 0, b: 0, a: 1}
-  ShipSideWings: {r: 1, g: 0, b: 0, a: 1}
-  ShipThrusters: {r: 1, g: 0, b: 0, a: 1}
-  Speed: 5
+  ShipName: Clocker
+  ShipNose: {r: 0.5803922, g: 0.5803922, b: 0.5803922, a: 0.166}
+  ShipBody: {r: 0.4901961, g: 0.4901961, b: 0.4901961, a: 0.197}
+  ShipSideWings: {r: 0.4431373, g: 0.4431373, b: 0.4431373, a: 0.216}
+  ShipThrusters: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 0.428}
+  Speed: 4
   FireRate: 3
-  Bullet: {fileID: 1372349447394750, guid: 504714e9ee7ee3b4c85b311d37c1c992, type: 2}
+  Bullet: {fileID: 1959106525048870, guid: 6ca95df8e5229ce4a9cbc8c899d2f6a4, type: 2}

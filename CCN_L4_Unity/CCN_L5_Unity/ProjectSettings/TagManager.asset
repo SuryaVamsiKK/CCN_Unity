@@ -13,6 +13,7 @@ TagManager:
   - Stats
   - Statsper
   - sts
+  - JOY
   layers:
   - Default
   - TransparentFX

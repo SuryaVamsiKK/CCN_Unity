@@ -56,8 +56,12 @@ MonoBehaviour:
   ships:
   - {fileID: 1464720537521660, guid: 4b3b990a57f8d6548bdca1e4ca8990d5, type: 2}
   - {fileID: 1609468865656202, guid: 841a48abf6c0ef94b87bca9c357d5085, type: 2}
+  - {fileID: 1475093308731454, guid: 221cda8de49d94d46adbf69a17ef3630, type: 2}
+  - {fileID: 1502592429928168, guid: d44790677f19d6c4aa480deaaa895692, type: 2}
+  - {fileID: 1273090726020108, guid: 5a9d2bdee7a90e942a16f77411153794, type: 2}
   pname: 
   status: {fileID: 0}
+  dead: 0
 --- !u!114 &114315577420538544
 MonoBehaviour:
   m_ObjectHideFlags: 1
