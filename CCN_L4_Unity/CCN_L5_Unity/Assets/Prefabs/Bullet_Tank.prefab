@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 40
   BulletColor: {r: 0.5372549, g: 0, b: 0, a: 1}
-  damagedelt: 8
+  damagedelt: 10
   resposinbleperson: 
 --- !u!114 &114736520303423194
 MonoBehaviour:
