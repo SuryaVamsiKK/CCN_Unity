@@ -19,6 +19,9 @@ public class Player : NetworkBehaviour {
 	public bool Joysitck = false;
 	public bool autoFire = false;
 
+	public Text pn;
+	[SyncVar]
+	public string pnstg;
 
 	private float waitfire;
 	private float Hori_Move;
@@ -42,12 +45,15 @@ public class Player : NetworkBehaviour {
 	void Update () {
 
 		Joysitck = GameObject.FindGameObjectWithTag("Choice").GetComponent<Choice_Manager>().joystickcarry;
+		autoFire = GameObject.FindGameObjectWithTag("Choice").GetComponent<Choice_Manager>().autofirecarry;
 
 		if (!this.transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
 		{
 			return;
 		}
 
+		pnstg = this.transform.root.gameObject.name;
+		pn.text = pnstg;
 		//Fire();
 
 		Debug.DrawRay(this.transform.position, this.transform.up * 5f, Color.red);

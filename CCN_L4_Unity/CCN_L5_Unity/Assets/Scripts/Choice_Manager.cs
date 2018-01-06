@@ -9,7 +9,7 @@ public class Choice_Manager : NetworkBehaviour {
 	public int ShipChoice;
 	public string names;
 	public bool joystickcarry = false;
-	Toggle obj;
+	public bool autofirecarry = false;
 
 	// Use this for initialization
 	void Start () {

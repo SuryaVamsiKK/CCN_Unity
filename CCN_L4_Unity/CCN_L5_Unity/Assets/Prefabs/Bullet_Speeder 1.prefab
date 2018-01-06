@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfface846c5f25648a8b8a1e3ae2b59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 40
+  Speed: 30
   BulletColor: {r: 0.76470596, g: 0, b: 0, a: 1}
-  damagedelt: 6
+  damagedelt: 10
   resposinbleperson: 
 --- !u!114 &114563973376507154
 MonoBehaviour:
